@@ -1,99 +1,172 @@
+"use client"
+
+import { useTranslation } from "react-i18next"
+import { motion } from "framer-motion"
 import Link from "next/link"
-import Image from "next/image"
-import { Github, Linkedin, Twitter, Mail } from "lucide-react"
+import { Github, Linkedin, Mail, Globe, MapPin, Phone, Calendar } from "lucide-react"
 
 export default function Footer() {
+  const { t } = useTranslation()
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="border-t bg-muted/40">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          <div className="space-y-4">
-            <Link href="/" className="flex items-center">
-              <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo_light_mode-dyDMaXHVfvt6snMqalR9YXixUzrfBd.png"
-                alt="Mohamed El Haddadi"
-                width={40}
-                height={40}
-                className="h-10 w-auto"
-              />
-              <span className="ml-2 text-lg font-bold">Mohamed El Haddadi</span>
-            </Link>
-            <p className="text-sm text-muted-foreground">
-              Fullstack Java Developer specializing in building robust and scalable applications.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider">Navigation</h3>
-            <ul className="space-y-2">
-              {["Home", "About", "Experience", "Skills", "Projects", "Contact"].map((item) => (
-                <li key={item}>
-                  <Link
-                    href={`#${item.toLowerCase()}`}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    {item}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider">Contact</h3>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>Casablanca, Morocco</li>
-              <li>contact@mohamedhaddadi.com</li>
-              <li>+212 600 000 000</li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider">Connect</h3>
+    <footer className="bg-gray-900 dark:bg-[#0B1120] py-16 text-white">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="mb-6">
+              <img src="/logo-dark.png" alt="Mohamed El Haddadi" className="h-16 w-auto" />
+            </div>
+            <p className="text-gray-400 mb-6 max-w-md">{t("footer.description")}</p>
             <div className="flex space-x-4">
               <a
-                href="https://github.com"
+                href="https://github.com/Medhaddadi"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                className="text-gray-400 hover:text-white transition-colors p-2 bg-gray-800 dark:bg-gray-700 rounded-full"
+                aria-label="GitHub"
               >
-                <Github className="h-5 w-5" />
-                <span className="sr-only">GitHub</span>
+                <Github size={20} />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://linkedin.com/in/mohamed-el-haddadi"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                className="text-gray-400 hover:text-white transition-colors p-2 bg-gray-800 dark:bg-gray-700 rounded-full"
+                aria-label="LinkedIn"
               >
-                <Linkedin className="h-5 w-5" />
-                <span className="sr-only">LinkedIn</span>
+                <Linkedin size={20} />
               </a>
               <a
-                href="https://twitter.com"
+                href="mailto:contact@mohamed-haddadi.com"
+                className="text-gray-400 hover:text-white transition-colors p-2 bg-gray-800 dark:bg-gray-700 rounded-full"
+                aria-label="Email"
+              >
+                <Mail size={20} />
+              </a>
+              <a
+                href="https://mohamed-haddadi.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                className="text-gray-400 hover:text-white transition-colors p-2 bg-gray-800 dark:bg-gray-700 rounded-full"
+                aria-label="Website"
               >
-                <Twitter className="h-5 w-5" />
-                <span className="sr-only">Twitter</span>
-              </a>
-              <a
-                href="mailto:contact@mohamedhaddadi.com"
-                className="rounded-full p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-              >
-                <Mail className="h-5 w-5" />
-                <span className="sr-only">Email</span>
+                <Globe size={20} />
               </a>
             </div>
-          </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            <h3 className="text-xl font-bold mb-6 border-b border-gray-800 pb-3">{t("footer.navigation")}</h3>
+            <ul className="space-y-3">
+              <li>
+                <a href="#home" className="text-gray-400 hover:text-white transition-colors">
+                  {t("nav.home")}
+                </a>
+              </li>
+              <li>
+                <a href="#about" className="text-gray-400 hover:text-white transition-colors">
+                  {t("nav.about")}
+                </a>
+              </li>
+              <li>
+                <a href="#experience" className="text-gray-400 hover:text-white transition-colors">
+                  {t("nav.experience")}
+                </a>
+              </li>
+              <li>
+                <a href="#skills" className="text-gray-400 hover:text-white transition-colors">
+                  {t("nav.skills")}
+                </a>
+              </li>
+              <li>
+                <a href="#projects" className="text-gray-400 hover:text-white transition-colors">
+                  {t("nav.projects")}
+                </a>
+              </li>
+              <li>
+                <Link href="/blog" className="text-gray-400 hover:text-white transition-colors">
+                  {t("nav.blog")}
+                </Link>
+              </li>
+              <li>
+                <Link href="/services" className="text-gray-400 hover:text-white transition-colors">
+                  {t("nav.services")}
+                </Link>
+              </li>
+              <li>
+                <Link href="/booking" className="text-gray-400 hover:text-white transition-colors flex items-center">
+                  <Calendar size={14} className="mr-1" />
+                  {t("nav.booking")}
+                </Link>
+              </li>
+              <li>
+                <a href="#contact" className="text-gray-400 hover:text-white transition-colors">
+                  {t("nav.contact")}
+                </a>
+              </li>
+            </ul>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <h3 className="text-xl font-bold mb-6 border-b border-gray-800 pb-3">{t("footer.contact")}</h3>
+            <ul className="space-y-3">
+              <li className="flex items-start">
+                <MapPin className="w-5 h-5 text-gray-400 mt-1 mr-3" />
+                <span className="text-gray-400">Casablanca, Morocco</span>
+              </li>
+              <li className="flex items-start">
+                <Mail className="w-5 h-5 text-gray-400 mt-1 mr-3" />
+                <a
+                  href="mailto:contact@mohamedhaddadi.com"
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  contact@mohamedhaddadi.com
+                </a>
+              </li>
+              <li className="flex items-start">
+                <Phone className="w-5 h-5 text-gray-400 mt-1 mr-3" />
+                <span className="text-gray-400">+212 600 000 000</span>
+              </li>
+              <li className="flex items-start mt-6">
+                <Link
+                  href="/booking"
+                  className="inline-flex items-center px-4 py-2 bg-primary hover:bg-primary/90 dark:bg-dark-highlight dark:hover:bg-dark-highlight/90 text-white rounded-md transition-colors"
+                >
+                  <Calendar size={16} className="mr-2" />
+                  {t("nav.booking")}
+                </Link>
+              </li>
+            </ul>
+          </motion.div>
         </div>
 
-        <div className="mt-8 border-t border-border pt-8 text-center text-sm text-muted-foreground">
-          <p>&copy; {currentYear} Mohamed El Haddadi. All rights reserved.</p>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="border-t border-gray-800 mt-12 pt-8 text-center"
+        >
+          <p className="text-gray-500 text-sm">
+            &copy; {currentYear} Mohamed El Haddadi. {t("footer.rights")}
+          </p>
+        </motion.div>
       </div>
     </footer>
   )

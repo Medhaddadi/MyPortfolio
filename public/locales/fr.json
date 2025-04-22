@@ -1,0 +1,47 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "experience": "Expérience",
+    "projects": "Projets",
+    "certifications": "Certifications",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Bonjour, je suis",
+    "title": "Ingénieur Logiciel",
+    "description": "Passionné par la création de solutions innovantes et le développement d'applications web modernes.",
+    "downloadCV": "Télécharger CV",
+    "contactMe": "Me Contacter"
+  },
+  "about": {
+    "title": "À Propos",
+    "description": "Ingénieur logiciel spécialisé dans le développement web, axé sur la création d'applications réactives et conviviales."
+  },
+  "experience": {
+    "title": "Expérience",
+    "readMore": "En savoir plus",
+    "readLess": "Voir moins"
+  },
+  "education": {
+    "title": "Formation"
+  },
+  "projects": {
+    "title": "Projets",
+    "viewDemo": "Voir la démo",
+    "viewCode": "Voir le code"
+  },
+  "certifications": {
+    "title": "Certifications",
+    "viewCertificate": "Voir le certificat"
+  },
+  "contact": {
+    "title": "Me Contacter",
+    "name": "Nom",
+    "email": "Email",
+    "message": "Message",
+    "send": "Envoyer",
+    "success": "Message envoyé avec succès !",
+    "error": "Erreur lors de l'envoi du message. Veuillez réessayer."
+  }
+}

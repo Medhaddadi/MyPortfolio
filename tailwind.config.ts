@@ -9,13 +9,6 @@ const config: Config = {
     "*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
     extend: {
       colors: {
         border: "hsl(var(--border))",
@@ -51,48 +44,25 @@ const config: Config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Light theme
+        primary: "#4F46E5", // indigo
+        secondary: "#38BDF8", // sky
+        "text-primary": "#6B7280", // gray
+
+        // Dark theme
+        "dark-primary": "#0F172A", // charcoal
+        "dark-secondary": "#334155", // slate
+        "dark-accent": "#22C55E", // lime
+        "dark-highlight": "#0EA5E9", // skyDark
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
-      keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--radix-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: "0" },
-        },
-        typing: {
-          "0%": {
-            width: "0%",
-            visibility: "hidden",
-          },
-          "100%": {
-            width: "100%",
-          },
-        },
-        blink: {
-          "50%": {
-            borderColor: "transparent",
-          },
-          "100%": {
-            borderColor: "hsl(var(--primary))",
-          },
-        },
-        fadeIn: {
-          from: { opacity: "0" },
-          to: { opacity: "1" },
-        },
-      },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
-        typing: "typing 2s steps(20) infinite alternate, blink .7s infinite",
-        fadeIn: "fadeIn 1s ease-in-out",
+      backgroundImage: {
+        "gradient-light": "linear-gradient(135deg, #4F46E5, #38BDF8)",
+        "gradient-dark": "linear-gradient(135deg, #1E40AF, #0EA5E9)",
       },
     },
   },

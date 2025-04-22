@@ -1,0 +1,47 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "certifications": "Certifications",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "title": "Software Engineer",
+    "description": "Passionate about creating innovative solutions and building modern web applications.",
+    "downloadCV": "Download CV",
+    "contactMe": "Contact Me"
+  },
+  "about": {
+    "title": "About Me",
+    "description": "Software engineer with expertise in web development, focusing on creating responsive and user-friendly applications."
+  },
+  "experience": {
+    "title": "Experience",
+    "readMore": "Read More",
+    "readLess": "Read Less"
+  },
+  "education": {
+    "title": "Education"
+  },
+  "projects": {
+    "title": "Projects",
+    "viewDemo": "View Demo",
+    "viewCode": "View Code"
+  },
+  "certifications": {
+    "title": "Certifications",
+    "viewCertificate": "View Certificate"
+  },
+  "contact": {
+    "title": "Contact Me",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send Message",
+    "success": "Message sent successfully!",
+    "error": "Error sending message. Please try again."
+  }
+}
