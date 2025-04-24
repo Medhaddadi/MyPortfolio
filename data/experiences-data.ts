@@ -14,7 +14,7 @@ export const experiencesData = [
       "Collaborated closely with the UI/UX and frontend teams to ensure smooth feature delivery and user-friendly interfaces",
       "Participated in the promotion and demonstration of the product's key features, highlighting business value such as simplicity, time-saving workflows, and better decision-making for restaurant owners",
     ],
-    logo: "/logos/sko.png",
+    logo: "/logos/QRestoPro.png",
     employmentType: "company",
   },
   {

@@ -11,7 +11,7 @@ export const projectsData = [
     description: "Secure accounting system for SME financial operations with multi-user authentication.",
     technologies: ["Spring Boot", "Thymeleaf", "PostgreSQL"],
     githubUrl: "https://github.com/Medhaddadi/AccountingSystem",
-    imageUrl: "/projects/accounting.png",
+    imageUrl: "/projects/accounting.jpg",
   },
   {
     title: "Content Marketplace",

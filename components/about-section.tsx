@@ -72,7 +72,7 @@ export default function AboutSection() {
           >
             <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white dark:border-dark-secondary shadow-xl">
               <Image
-                src="/placeholder.svg?height=320&width=320"
+                src="/about/ELHADDADI_Mohamed.jpeg?height=320&width=320"
                 alt="Mohamed El Haddadi"
                 fill
                 className="object-cover"

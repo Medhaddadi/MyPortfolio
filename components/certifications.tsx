@@ -24,7 +24,6 @@ export default function Certifications({ certifications }: CertificationsProps) 
   const [visibleItems, setVisibleItems] = useState(3)
   const containerRef = useRef<HTMLDivElement>(null)
 
-  // Determine how many items to show based on screen width
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 640) {
@@ -42,11 +41,15 @@ export default function Certifications({ certifications }: CertificationsProps) 
   }, [])
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + visibleItems >= certifications.length ? 0 : prevIndex + 1))
+    setCurrentIndex((prevIndex) =>
+      prevIndex + visibleItems >= certifications.length ? 0 : prevIndex + 1
+    )
   }
 
   const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex <= 0 ? Math.max(0, certifications.length - visibleItems) : prevIndex - 1))
+    setCurrentIndex((prevIndex) =>
+      prevIndex <= 0 ? Math.max(0, certifications.length - visibleItems) : prevIndex - 1
+    )
   }
 
   const goToSlide = (index: number) => {
@@ -66,11 +69,11 @@ export default function Certifications({ certifications }: CertificationsProps) 
           {t("certifications.title")}
         </motion.h2>
 
-        <div className="relative max-w-6xl mx-auto">
-          {/* Carousel navigation buttons */}
+        {/* Carousel */}
+        <div className="relative max-w-6xl mx-auto mb-20">
           <button
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 z-10 bg-white dark:bg-dark-secondary rounded-full p-2 shadow-lg text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-dark-secondary/80 focus:outline-none"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 z-10 bg-white dark:bg-dark-secondary rounded-full p-2 shadow-lg text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-dark-secondary/80"
             aria-label="Previous slide"
           >
             <ChevronLeft className="w-6 h-6" />
@@ -78,41 +81,40 @@ export default function Certifications({ certifications }: CertificationsProps) 
 
           <button
             onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-5 z-10 bg-white dark:bg-dark-secondary rounded-full p-2 shadow-lg text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-dark-secondary/80 focus:outline-none"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-5 z-10 bg-white dark:bg-dark-secondary rounded-full p-2 shadow-lg text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-dark-secondary/80"
             aria-label="Next slide"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
 
-          {/* Carousel container */}
           <div className="overflow-hidden" ref={containerRef}>
-            <motion.div
-              className="flex transition-all duration-500 ease-in-out"
-              initial={{ x: 0 }}
-              animate={{ x: `-${currentIndex * (100 / visibleItems)}%` }}
-              transition={{ type: "tween", ease: "easeInOut", duration: 0.5 }}
+            <div
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{
+                transform: `translateX(-${currentIndex * (100 / visibleItems)}%)`,
+              }}
             >
               {certifications.map((cert, index) => (
-                <div
+                <motion.div
                   key={index}
-                  className={`flex-shrink-0 w-full sm:w-1/2 lg:w-1/3 p-4 transition-opacity duration-300 ${
-                    index >= currentIndex && index < currentIndex + visibleItems
-                      ? "opacity-100"
-                      : "opacity-40 pointer-events-none"
-                  }`}
+                  className="flex-shrink-0 p-4"
                   style={{ width: `${100 / visibleItems}%` }}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
                   <motion.div
-                    className="bg-white dark:bg-dark-secondary rounded-xl shadow-md overflow-hidden h-full hover:shadow-lg transition-shadow"
+                    className="bg-white dark:bg-dark-secondary rounded-xl shadow-md overflow-hidden h-full hover:shadow-xl transition-shadow"
                     whileHover={{ y: -5 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="relative h-48 overflow-hidden">
-                      <img
-                        src={cert.imageUrl || "/placeholder.svg"}
-                        alt={cert.title}
-                        className="w-full h-full object-cover transition-transform hover:scale-105 duration-300"
-                      />
+                    <div className="relative w-full aspect-video overflow-hidden">
+                    <img
+    src={cert.imageUrl || "/placeholder.svg"}
+    alt={cert.title}
+    className="w-full h-full object-cover transition-transform duration-500 hover:scale-[1.05]"
+  />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
                         <div className="p-4 text-white">
                           <h3 className="text-lg font-bold">{cert.organization}</h3>
@@ -141,23 +143,78 @@ export default function Certifications({ certifications }: CertificationsProps) 
                       )}
                     </div>
                   </motion.div>
-                </div>
+                </motion.div>
               ))}
-            </motion.div>
+            </div>
           </div>
 
-          {/* Carousel indicators */}
           <div className="flex justify-center mt-8 space-x-2">
-            {Array.from({ length: Math.ceil(certifications.length - visibleItems + 1) }).map((_, index) => (
+            {Array.from({
+              length: Math.ceil(certifications.length - visibleItems + 1),
+            }).map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  currentIndex === index ? "bg-primary dark:bg-dark-highlight w-6" : "bg-gray-300 dark:bg-gray-700"
+                  currentIndex === index
+                    ? "bg-primary dark:bg-dark-highlight w-6"
+                    : "bg-gray-300 dark:bg-gray-700"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
+          </div>
+        </div>
+
+        {/* 🎖 HackerRank Badges */}
+        <div className="bg-white dark:bg-dark-secondary rounded-xl shadow-md p-6">
+          <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white text-center">
+            🏅 HackerRank Badges
+          </h3>
+
+          <div className="flex flex-wrap justify-center items-center gap-6">
+            {[
+              { name: "Problem Solving", stars: 2, icon: "/certificates/badges/problem-solving.png" },
+              { name: "Java", stars: 3, icon: "/certificates/badges/java.png" },
+              { name: "Python", stars: 2, icon: "/certificates/badges/python.png" },
+              { name: "C language", stars: 2, icon: "/certificates/badges/c.png" },
+            ].map((badge, i) => (
+              <motion.div
+                key={i}
+                className="flex flex-col items-center"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+              >
+                <div className="w-20 h-20 relative">
+                  <img
+                    src={badge.icon}
+                    alt={badge.name}
+                    className="object-contain w-full h-full"
+                  />
+                </div>
+                <p className="mt-2 text-center text-sm font-semibold text-gray-800 dark:text-white">
+                  {badge.name}
+                </p>
+                <div className="flex items-center mt-1">
+                  {Array.from({ length: badge.stars }).map((_, j) => (
+                    <Award key={j} size={14} className="text-yellow-400 mx-[1px]" />
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="text-center mt-6">
+            <a
+              href="https://www.hackerrank.com/profile/mohamedhadadi001"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-5 py-2 mt-2 bg-primary text-white rounded-md hover:bg-primary/80 transition"
+            >
+              Voir mon profil HackerRank →
+            </a>
           </div>
         </div>
       </div>
