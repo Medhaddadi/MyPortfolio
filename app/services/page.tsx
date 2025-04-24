@@ -19,6 +19,10 @@ export default function ServicesPage() {
     }
   }, [i18n])
 
+  // Get the current language data
+  const currentLanguage = i18n.language || "en"
+  const currentServices = servicesData[currentLanguage as keyof typeof servicesData] || servicesData.en
+
   // Helper function to get the appropriate icon
   const getServiceIcon = (type: string) => {
     switch (type) {
@@ -91,7 +95,7 @@ export default function ServicesPage() {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {servicesData.map((service, index) => (
+            {currentServices.map((service, index) => (
               <motion.div
                 key={index}
                 className="bg-white dark:bg-dark-secondary rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"

@@ -3,10 +3,18 @@
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
 import { motion } from "framer-motion"
-import { skillsData } from "@/data/skills-data"
 import { Check, ChevronDown } from "lucide-react"
 
-export default function SkillsSection() {
+interface SkillCategory {
+  title: string
+  skills: string[]
+}
+
+interface SkillsSectionProps {
+  skillsData?: SkillCategory[] // ⬅️ Rendu optionnel ici
+}
+
+export default function SkillsSection({ skillsData = [] }: SkillsSectionProps) { // ⬅️ Valeur par défaut []
   const { t } = useTranslation()
   const [activeCategory, setActiveCategory] = useState<string | null>(null)
 
@@ -28,7 +36,7 @@ export default function SkillsSection() {
         </motion.h2>
 
         <div className="max-w-4xl mx-auto">
-          {skillsData.map((category, index) => (
+          {Array.isArray(skillsData) && skillsData.map((category, index) => (
             <motion.div
               key={index}
               className="mb-6"
@@ -83,7 +91,7 @@ export default function SkillsSection() {
           ))}
         </div>
 
-        {/* Skill bars for top skills */}
+        {/* Skill bars */}
         <motion.div
           className="mt-16 max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
@@ -91,16 +99,12 @@ export default function SkillsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <h3 className="text-xl font-bold mb-8 text-center text-gray-800 dark:text-white">{t("skills.topSkills")}</h3>
+          <h3 className="text-xl font-bold mb-8 text-center text-gray-800 dark:text-white">
+            {t("skills.topSkills")}
+          </h3>
 
           <div className="space-y-6">
-            {[
-              { name: "Java", level: 95 },
-              { name: "Spring Boot", level: 90 },
-              { name: "JavaScript/TypeScript", level: 85 },
-              { name: "React", level: 80 },
-              { name: "Angular", level: 75 },
-            ].map((skill, index) => (
+            {[{ name: "Java", level: 95 }, { name: "Spring Boot", level: 90 }, { name: "JavaScript/TypeScript", level: 85 }, { name: "React", level: 80 }, { name: "Angular", level: 75 }].map((skill, index) => (
               <div key={index}>
                 <div className="flex justify-between mb-2">
                   <span className="text-gray-700 dark:text-gray-300 font-medium">{skill.name}</span>

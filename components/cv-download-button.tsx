@@ -17,12 +17,12 @@ export default function CVDownloadButton() {
       await trackCVDownload()
 
       // Get the appropriate CV based on language
-      const cvPath = i18n.language === "fr" ? "/cv-fr.pdf" : "/cv-en.pdf"
+      const cvPath = i18n.language === "fr" ? "/Mohamed EL HADDADI-cv-fr.pdf" : "/Mohamed EL HADDADI-cv-fr.pdf"
 
       // Create a link and trigger download
       const link = document.createElement("a")
       link.href = cvPath
-      link.download = i18n.language === "fr" ? "CV_FR.pdf" : "CV_EN.pdf"
+      link.download = i18n.language === "fr" ? "Mohamed EL HADDADI-cv-fr.pdf" : "Mohamed EL HADDADI-cv-fr.pdf"
       document.body.appendChild(link)
       link.click()
       document.body.removeChild(link)

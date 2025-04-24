@@ -14,10 +14,10 @@ interface Project {
 }
 
 interface ProjectsProps {
-  projects: Project[]
+  projects?: Project[] // ⬅️ optionnel
 }
 
-export default function Projects({ projects }: ProjectsProps) {
+export default function Projects({ projects = [] }: ProjectsProps) { // ⬅️ valeur par défaut
   const { t } = useTranslation()
 
   const container = {
@@ -55,7 +55,7 @@ export default function Projects({ projects }: ProjectsProps) {
           whileInView="show"
           viewport={{ once: true }}
         >
-          {projects.map((project, index) => (
+          {Array.isArray(projects) && projects.map((project, index) => (
             <motion.div
               key={index}
               className="bg-white dark:bg-dark-secondary rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"

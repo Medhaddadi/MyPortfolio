@@ -50,6 +50,13 @@ export default function Navbar() {
         setIsLangMenuOpen(false)
       }
     }
+    // Set French as default language if no preference is saved
+    const savedLanguage = localStorage.getItem("language")
+    if (!savedLanguage) {
+      i18n.changeLanguage("fr")
+      localStorage.setItem("language", "fr")
+    }
+
 
     window.addEventListener("scroll", handleScroll)
     document.addEventListener("mousedown", handleClickOutside)
@@ -58,7 +65,7 @@ export default function Navbar() {
       window.removeEventListener("scroll", handleScroll)
       document.removeEventListener("mousedown", handleClickOutside)
     }
-  }, [])
+  }, [i18n])
 
   useEffect(() => {
     const handleResize = () => {

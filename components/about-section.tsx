@@ -37,7 +37,7 @@ export default function AboutSection() {
             <div className="space-y-4 mb-8">
               <div className="flex items-start">
                 <MapPin className="w-5 h-5 text-primary dark:text-dark-highlight mt-1 mr-3" />
-                <span className="text-gray-600 dark:text-gray-300">Casablanca, Morocco</span>
+                <span className="text-gray-600 dark:text-gray-300">Lyon, France</span>
               </div>
               <div className="flex items-start">
                 <Mail className="w-5 h-5 text-primary dark:text-dark-highlight mt-1 mr-3" />
@@ -45,10 +45,10 @@ export default function AboutSection() {
                   href="mailto:contact@mohamedhaddadi.com"
                   className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-dark-highlight transition-colors"
                 >
-                  contact@mohamedhaddadi.com
+                  contact@elhaddadidev.com
                 </a>
               </div>
-              <div className="flex items-start">
+              <div className="flex items-start hidden">
                 <Phone className="w-5 h-5 text-primary dark:text-dark-highlight mt-1 mr-3" />
                 <span className="text-gray-600 dark:text-gray-300">+212 600 000 000</span>
               </div>

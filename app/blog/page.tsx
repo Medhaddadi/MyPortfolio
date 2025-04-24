@@ -12,10 +12,14 @@ export default function BlogPage() {
   const { t, i18n } = useTranslation()
   const [searchTerm, setSearchTerm] = useState("")
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
-  const [filteredPosts, setFilteredPosts] = useState(blogPosts)
+  const [filteredPosts, setFilteredPosts] = useState([])
+
+  // Get the current language data
+  const currentLanguage = i18n.language || "en"
+  const currentBlogPosts = blogPosts[currentLanguage as keyof typeof blogPosts] || blogPosts.en
 
   // Extract all unique categories
-  const categories = Array.from(new Set(blogPosts.map((post) => post.category)))
+  const categories = Array.from(new Set(currentBlogPosts.map((post) => post.category)))
 
   useEffect(() => {
     // Load saved language preference
@@ -25,7 +29,7 @@ export default function BlogPage() {
     }
 
     // Filter posts based on search term and category
-    const filtered = blogPosts.filter((post) => {
+    const filtered = currentBlogPosts.filter((post) => {
       const matchesSearch =
         searchTerm === "" ||
         post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -37,7 +41,7 @@ export default function BlogPage() {
     })
 
     setFilteredPosts(filtered)
-  }, [i18n, searchTerm, selectedCategory])
+  }, [i18n, searchTerm, selectedCategory, currentBlogPosts])
 
   // Animation variants
   const containerVariants = {
