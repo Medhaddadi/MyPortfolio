@@ -58,7 +58,7 @@ export const experiencesData = {
       title: "Mentor for Final Year Project – Fullstack Java Development",
       company: "",
       location: "Remote",
-      date: "04/2023 - 08/2024 (16 months)",
+      date: "04/2024 - 08/2024 (4 months)",
       description:
         "Provided training and guidance for the development of a ticket management solution for the Paris 2024 Olympic Games.",
       details: [
@@ -69,24 +69,6 @@ export const experiencesData = {
         "Used [Java](https://www.java.com/), [Spring Boot](https://spring.io/projects/spring-boot), [Hibernate](https://hibernate.org/), and [MySQL](https://www.mysql.com/) for backend development."
       ],
       technologies: ["Java", "Spring Boot", "Hibernate", "MySQL", "RESTful APIs", "React", "Docker", "Git"],
-      logo: "",
-      employmentType: "freelance",
-    },
-    {
-      title: "Fullstack PHP Developer – Course and Quiz Management",
-      company: "",
-      location: "Remote",
-      date: "02/2023 - 07/2023 (5 months)",
-      description:
-        "Developed a course and quiz management solution for an online training school.",
-      details: [
-        "Designed and developed an application for managing courses and quizzes.",
-        "Created a RESTful API for managing users, courses, and quizzes.",
-        "Implemented unit and integration tests to ensure code quality.",
-        "Collaborated with the product team to define functional and technical requirements.",
-        "Used [PHP](https://www.php.net/), [Laravel](https://laravel.com/), and [MySQL](https://www.mysql.com/) for backend development."
-      ],
-      technologies: ["PHP", "Laravel", "MySQL", "JavaScript", "HTML", "CSS", "Bootstrap", "Git"],
       logo: "",
       employmentType: "freelance",
     },
@@ -109,6 +91,7 @@ export const experiencesData = {
       logo: "",
       employmentType: "freelance",
     },
+    
     {
       title: "Research Assistant – Oracle Graph Studio",
       company: "Oracle",
@@ -126,6 +109,24 @@ export const experiencesData = {
       technologies: ["Java", "React", "D3.js", "Selenium", "Jenkins", "Spring Boot"],
       logo: "/logos/oracle.png",
       employmentType: "company",
+    },
+    {
+      title: "Fullstack PHP Developer – Course and Quiz Management",
+      company: "",
+      location: "Remote",
+      date: "02/2023 - 07/2023 (5 months)",
+      description:
+        "Developed a course and quiz management solution for an online training school.",
+      details: [
+        "Designed and developed an application for managing courses and quizzes.",
+        "Created a RESTful API for managing users, courses, and quizzes.",
+        "Implemented unit and integration tests to ensure code quality.",
+        "Collaborated with the product team to define functional and technical requirements.",
+        "Used [PHP](https://www.php.net/), [Laravel](https://laravel.com/), and [MySQL](https://www.mysql.com/) for backend development."
+      ],
+      technologies: ["PHP", "Laravel", "MySQL", "JavaScript", "HTML", "CSS", "Bootstrap", "Git"],
+      logo: "",
+      employmentType: "freelance",
     },
     {
       title: "Web Developer – SEOMANIAK",
@@ -258,24 +259,6 @@ export const experiencesData = {
       employmentType: "freelance",
     },
     {
-      title: "Développeur Fullstack PHP – Gestion des Cours et Quiz",
-      company: "",
-      location: "Télétravail",
-      date: "02/2023 - 07/2023 (5 mois)",
-      description:
-        "Développement d'une solution de gestion des cours et quiz pour une école de formation en ligne.",
-      details: [
-        "Conception et développement d'une application de gestion des cours et des quiz.",
-        "Création d'une API RESTful pour la gestion des utilisateurs, des cours et des quiz.",
-        "Mise en place de tests unitaires et d'intégration pour assurer la qualité du code.",
-        "Collaboration avec l'équipe produit pour définir les exigences fonctionnelles et techniques.",
-        "Utilisation de [PHP](https://www.php.net/), [Laravel](https://laravel.com/), et [MySQL](https://www.mysql.com/) pour le développement backend."
-      ],
-      technologies: ["PHP", "Laravel", "MySQL", "JavaScript", "HTML", "CSS", "Bootstrap", "Git"],
-      logo: "",
-      employmentType: "freelance",
-    },
-    {
       title: "Développeur Fullstack Java – Gestion de la Comptabilité et des Paiements",
       company: "",
       location: "Télétravail",
@@ -311,6 +294,24 @@ export const experiencesData = {
       technologies: ["Java", "React", "D3.js", "Selenium", "Jenkins", "Spring Boot"],
       logo: "/logos/oracle.png",
       employmentType: "company",
+    },
+    {
+      title: "Développeur Fullstack PHP – Gestion des Cours et Quiz",
+      company: "",
+      location: "Télétravail",
+      date: "02/2023 - 07/2023 (5 mois)",
+      description:
+        "Développement d'une solution de gestion des cours et quiz pour une école de formation en ligne.",
+      details: [
+        "Conception et développement d'une application de gestion des cours et des quiz.",
+        "Création d'une API RESTful pour la gestion des utilisateurs, des cours et des quiz.",
+        "Mise en place de tests unitaires et d'intégration pour assurer la qualité du code.",
+        "Collaboration avec l'équipe produit pour définir les exigences fonctionnelles et techniques.",
+        "Utilisation de [PHP](https://www.php.net/), [Laravel](https://laravel.com/), et [MySQL](https://www.mysql.com/) pour le développement backend."
+      ],
+      technologies: ["PHP", "Laravel", "MySQL", "JavaScript", "HTML", "CSS", "Bootstrap", "Git"],
+      logo: "",
+      employmentType: "freelance",
     },
     {
       title: "Développeur Web – SEOMANIAK",

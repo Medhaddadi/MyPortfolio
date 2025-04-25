@@ -4,6 +4,7 @@ import type React from "react"
 import { useState, type FormEvent, useRef } from "react"
 import { useTranslation } from "react-i18next"
 import { motion } from "framer-motion"
+import emailjs from "@emailjs/browser"
 import { Send, CheckCircle, AlertCircle, User, Mail, MessageSquare, MapPin, Phone, Globe } from "lucide-react"
 
 export default function ContactForm() {
@@ -38,27 +39,23 @@ export default function ContactForm() {
       // Simulate sending email
       await new Promise((resolve) => setTimeout(resolve, 1000))
 
-      // For now, we'll just log the form data
       console.log("Form submitted:", formData)
 
-      // In production, you would use EmailJS or another service:
-      /*
+      // Replace with your email sending logic (e.g., EmailJS)
       await emailjs.send(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
+        "service_pl4n3de",
+        "template_zpwmz8e",
         {
-          from_name: formData.name,
-          from_email: formData.email,
+          name: formData.name,
+          email: formData.email,
           message: formData.message,
         },
-        "YOUR_PUBLIC_KEY"
+        "8jECNjMQXo5aL4lIb"
       )
-      */
 
       setStatus("success")
       setFormData({ name: "", email: "", message: "" })
 
-      // Reset status after 5 seconds
       setTimeout(() => {
         setStatus("idle")
       }, 5000)
@@ -66,7 +63,6 @@ export default function ContactForm() {
       console.error("Error sending email:", error)
       setStatus("error")
 
-      // Reset status after 5 seconds
       setTimeout(() => {
         setStatus("idle")
       }, 5000)
@@ -83,8 +79,10 @@ export default function ContactForm() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold mb-4 text-gray-800 dark:text-white">{t("contact.title")}</h2>
-          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">{t("contact.subtitle")}</p>
+          <h2 className="text-3xl font-bold mb-4 text-gray-800 dark:text-white">Contact Me</h2>
+          <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            Feel free to reach out to me for any inquiries or collaborations.
+          </p>
         </motion.div>
 
         <div className="max-w-5xl mx-auto">
@@ -109,7 +107,7 @@ export default function ContactForm() {
                     <div>
                       <h4 className="text-sm font-semibold uppercase opacity-80">{t("contact.email")}</h4>
                       <a href="mailto:contact@mohamedhaddadi.com" className="hover:underline">
-                        contact@mohamedhaddadi.com
+                        contact@elhaddadidev.com
                       </a>
                     </div>
                   </div>
@@ -120,11 +118,11 @@ export default function ContactForm() {
                     </div>
                     <div>
                       <h4 className="text-sm font-semibold uppercase opacity-80">{t("contact.location")}</h4>
-                      <p>Casablanca, Morocco</p>
+                      <p>Lyon, France</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start">
+                  <div className="flex items-start hidden md:flex">
                     <div className="bg-white/20 p-3 rounded-full mr-4 flex-shrink-0">
                       <Phone className="w-5 h-5" />
                     </div>

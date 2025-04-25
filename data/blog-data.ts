@@ -30,7 +30,7 @@ export const blogPosts = {
       authorImage: "/placeholder.svg?height=100&width=100",
       category: "Java",
       tags: ["Java", "Spring Boot", "Microservices", "Best Practices"],
-      coverImage: "/blog/java-2024.jpg",
+      coverImage: "/blog/java-2024.png",
       readTime: 8,
       likes: 42,
       comments: [

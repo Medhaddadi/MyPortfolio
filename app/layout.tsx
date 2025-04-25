@@ -25,8 +25,8 @@ export const metadata: Metadata = {
     url: "https://mohamed-haddadi.com",
     title: "Mohamed Haddadi - Développeur Fullstack Java & Spring Boot",
     description:
-      "Portfolio de Mohamed Haddadi, ingénieur logiciel spécialisé dans le développement d'applications web avec Java, Spring Boot, React et Angular.",
-    siteName: "Mohamed Haddadi Portfolio",
+      "Portfolio de Mohamed EL Haddadi, ingénieur logiciel spécialisé dans le développement d'applications web avec Java, Spring Boot, React et Angular.",
+    siteName: "Mohamed EL Haddadi Portfolio",
     images: [
       {
         url: "/og-image.jpg",
