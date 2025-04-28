@@ -122,7 +122,7 @@ export default function ContactForm() {
                     </div>
                   </div>
 
-                  <div className="flex items-start hidden md:flex">
+                  <div className="flex items-star tmd:flex hidden">
                     <div className="bg-white/20 p-3 rounded-full mr-4 flex-shrink-0">
                       <Phone className="w-5 h-5" />
                     </div>

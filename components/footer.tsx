@@ -43,14 +43,14 @@ export default function Footer() {
                 <Linkedin size={20} />
               </a>
               <a
-                href="mailto:contact@mohamed-haddadi.com"
+                href="mailto:contact@elhaddadidev.com"
                 className="text-gray-400 hover:text-white transition-colors p-2 bg-gray-800 dark:bg-gray-700 rounded-full"
                 aria-label="Email"
               >
                 <Mail size={20} />
               </a>
               <a
-                href="https://mohamed-haddadi.com"
+                href="https://elhaddadidev.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition-colors p-2 bg-gray-800 dark:bg-gray-700 rounded-full"
